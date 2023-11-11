@@ -34,8 +34,11 @@ Crime Statistics Website
 
 ### List of team members:
 Shenglan Fang ([shenglan.fang@yale.edu](shenglan.fang@yale.edu))
+
 Hanqing Liu ([hanqing.liu@yale.edu](hanqing.liu@yale.edu))
+
 Qiuhao Zhang ([qiuhao.zhang@yale.edu](qiuhao.zhang@yale.edu))
+
 
 ### Problem Description:
 Our team aims to analyze the crime data in New York city and Seattle. Crime statistics are crucial to both local people and justice professionals. For local residents, they can determine and measure the degrees of the safety of their living environment and reduce risks. For legislators and justice professionals, they can anticipate the increased risk of crime, and this can be followed up by law enforcement intervention to prevent the predicted crimes from occurring. And also we choose crime data from two cities each one the East Coast and the other one form West Coast of the United States. In this case, comparing cities from these coasts can provide insights into the cultural and geographical differences that exist across the country. This comparison can provide valuable insights for those considering relocation, businesses looking to expand, researchers studying regional differences, and policymakers addressing urban and regional challenges.
