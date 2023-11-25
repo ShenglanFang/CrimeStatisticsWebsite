@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crime Statistics Chart</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@3.9.4/dist/full.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div class="navbar bg-base-100 mb-5">
+        <div class="flex-none">
+            <div class="dropdown">
+                <label tabindex="0" class="btn btn-ghost btn-circle">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h7" /></svg>
+                </label>
+                <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                    <li><a href="index.html">Homepage</a></li>
+                    <li><a href="map.html">Portfolio</a></li>
+                    <li><a href="crime_weekday.html">crime_weekday</a></li>
+                    <li><a href="crime_hour.html">crime_hour</a></li>
+                    <li><a href="portfolio.html">About</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="flex-1">
+            <a class="btn btn-ghost normal-case text-xl">Crime Statistics</a>
+        </div>
+        <div class="flex-none">
+            <button class="btn btn-square btn-ghost">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" class="inline-block w-5 h-5 stroke-current"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"></path></svg>
+            </button>
+        </div>
+    </div>
+    <div class="container mx-auto">
+        <div class="flex flex-col md:flex-row items-center md:items-start">
+            
+            <div class="md:w-1/2 p-4">
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Graph Title</h1>
+                <p class="text-gray-600">
+                    This is a description of the graph. It provides context to what the graph represents and any other relevant information.
+                </p>
+            </div>
+
+            <div class="md:w-1/2 p-4">
+                <div class="bg-white p-6 rounded-lg shadow-lg">
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Frequency Graph</h2>
+                    <canvas id="crimeChart" width="800" height="400"></canvas>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="crime_hour_process.js"></script>
+</body>
+</html>
