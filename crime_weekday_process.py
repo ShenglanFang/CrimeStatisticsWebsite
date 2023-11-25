@@ -57,6 +57,29 @@ def get_hourly_crime_stat():
 
     return jsonify(data)
 
+@app.route('/get_monthly_crime_stat')
+def get_monthly_crime_stat():
+    # Database connection details
+    host = '127.0.0.1'
+    user = 'fslllllki'
+    password = 'wl90304zY!'
+    db = 'crime_statistics'
+
+    # Connect to the database
+    connection = pymysql.connect(host=host, user=user, password=password, db=db)
+
+    try:
+        with connection.cursor() as cursor:
+            # Assuming your table is named 'monthly_crime_stats'
+            sql = "SELECT * FROM monthly_stats"
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            # Adjust the row indices based on your table structure
+            data = [{"Month": row[0], "Month_Count": row[1], "Month_Count_SE": row[2], "Month_Count_NY": row[3]} for row in result]
+    finally:
+        connection.close()
+
+    return jsonify(data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
