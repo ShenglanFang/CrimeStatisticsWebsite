@@ -37,15 +37,21 @@
         <div class="flex flex-col md:flex-row items-center md:items-start">
             
             <div class="md:w-1/2 p-4">
-                <h1 class="text-2xl font-bold text-gray-800 mb-2">Graph Title</h1>
-                <p class="text-gray-600">
-                    This is a description of the graph. It provides context to what the graph represents and any other relevant information.
-                </p>
+                <h1 class="text-2xl font-bold text-gray-800 mb-2">Month Frequency Graph</h1>
+                    
+                    <ul>
+                        <li><strong>Axis Labels and Scale</strong>: The horizontal axis represents months, and the vertical axis represents frequency, ranging from 0 to 80,000.</li>
+                        <li><strong>Bars</strong>: Three sets of colored bars per month represent Total Count, Count in SE, and Count in NY.</li>
+                        <li><strong>Limitations</strong>: The graph is limited by the lack of detailed context, and the y-axis scale is truncated at the top.</li><li><strong>Legend</strong>: A legend indicates the color coding for each dataset.</li>
+                        <li><strong>Data Points and Trends</strong>: Total Count and Count in SE show a peak in May and June. Count in NY is relatively lower throughout the year.</li>
+                        <li><strong>Possible Inferences</strong>: There may be a seasonal pattern, with SE showing higher frequency than NY. The Total Count likely includes other unspecified locations.</li>
+                        
+                    </ul>
             </div>
 
             <div class="md:w-1/2 p-4">
                 <div class="bg-white p-6 rounded-lg shadow-lg">
-                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Frequency Graph</h2>
+                    <h2 class="text-xl font-semibold text-gray-800 mb-2">Month Frequency Graph</h2>
                     <canvas id="crimeChart" width="800" height="400"></canvas>
                 </div>
             </div>
