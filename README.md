@@ -4,7 +4,8 @@
 
 ## Website Link
 
-[HomePage](https://shenglanfang.github.io/CrimeStatisticsWebsite/](http://ec2-3-129-63-152.us-east-2.compute.amazonaws.com/~fslllllki/CrimeStatisticsWebsite/index.html)
+[HomePage](http://ec2-3-129-63-152.us-east-2.compute.amazonaws.com/~fslllllki/CrimeStatisticsWebsite/index.html)
+
 
 ## Recently Updates
 **Nov 10, 2023:**
