@@ -81,6 +81,89 @@ def get_monthly_crime_stat():
 
     return jsonify(data)
 
+
+@app.route('/get_crime_type_stat')
+def get_crime_type_stat():
+    # Database connection details
+    host = '127.0.0.1'
+    user = 'fslllllki'
+    password = 'wl90304zY!'
+    db = 'crime_statistics'
+
+    # Connect to the database
+    connection = pymysql.connect(host=host, user=user, password=password, db=db)
+
+    try:
+        with connection.cursor() as cursor:
+            # This SQL will count the number of occurrences of each Crime_Type
+            # and join with the offense descriptions from the other table
+            sql = """
+            SELECT 
+                t.Crime_Type_ID,
+                t.Offense_Description,
+                COUNT(d.Crime_Type) AS Crime_Count
+            FROM 
+                nyc_crime_data_instance d
+            JOIN 
+                nyc_crime_types t ON d.Crime_Type = t.Crime_Type_ID
+            GROUP BY 
+                t.Crime_Type_ID,
+                t.Offense_Description;
+            """
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            # Format the result into a list of dictionaries
+            data = [{
+                "Crime_Type_ID": row[0],
+                "Offense_Description": row[1],
+                "Crime_Count": row[2]
+            } for row in result]
+    finally:
+        connection.close()
+
+    return jsonify(data)    
+
+@app.route('/get_crime_type_stat_seattle')
+def get_crime_type_stat_seattle():
+    # Database connection details
+    host = '127.0.0.1'
+    user = 'fslllllki'
+    password = 'wl90304zY!'
+    db = 'crime_statistics'
+
+    # Connect to the database
+    connection = pymysql.connect(host=host, user=user, password=password, db=db)
+
+    try:
+        with connection.cursor() as cursor:
+            # This SQL will count the number of occurrences of each Crime_Type
+            # and join with the offense descriptions from the other table
+            sql = """
+            SELECT 
+                t.Crime_Type_ID,
+                t.Offense_Description,
+                COUNT(d.Crime_Type) AS Crime_Count
+            FROM 
+                seattle_crime_data_instance d
+            JOIN 
+                seattle_crime_types t ON d.Crime_Type = t.Crime_Type_ID
+            GROUP BY 
+                t.Crime_Type_ID,
+                t.Offense_Description;
+            """
+            cursor.execute(sql)
+            result = cursor.fetchall()
+            # Format the result into a list of dictionaries
+            data = [{
+                "Crime_Type_ID": row[0],
+                "Offense_Description": row[1],
+                "Crime_Count": row[2]
+            } for row in result]
+    finally:
+        connection.close()
+
+    return jsonify(data)    
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
 
