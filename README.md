@@ -7,6 +7,7 @@
 [HomePage](http://ec2-3-129-63-152.us-east-2.compute.amazonaws.com/~fslllllki/CrimeStatisticsWebsite/index.html)
 
 
+
 ## Recently Updates
 **Nov 10, 2023:**
 We constructed a basic frontend web page and displayed the visualization results of the geographical coordinates. 
@@ -17,6 +18,15 @@ We have conducted an initial extraction and filtering of the data. Currently, we
 
 **Oct 26, 2023:**
 After further team discussions, we have finalized the division of labor and established a plan for executing the project.
+
+**Nov 20, 2023:**
+Add some frontend pages
+
+**Dec 2, 2023:**
+Add the backend code written by flask, and Modified and improved some front-end codes
+
+**Dec 6, 2023:**
+Adjusted the complete code, organized and uploaded
 
 
 ## Install
@@ -42,7 +52,46 @@ Qiuhao Zhang ([qiuhao.zhang@yale.edu](qiuhao.zhang@yale.edu))
 
 
 ### Problem Description:
+We analyze the crime data in New York city and Seattle. 
+Benefits:
+- determine and measure the degrees of the safety of their living environment and reduce risks
+- provide insights into the cultural and geographical differences that exist across the country.
+
+
 Our team aims to analyze the crime data in New York city and Seattle. Crime statistics are crucial to both local people and justice professionals. For local residents, they can determine and measure the degrees of the safety of their living environment and reduce risks. For legislators and justice professionals, they can anticipate the increased risk of crime, and this can be followed up by law enforcement intervention to prevent the predicted crimes from occurring. And also we choose crime data from two cities each one the East Coast and the other one form West Coast of the United States. In this case, comparing cities from these coasts can provide insights into the cultural and geographical differences that exist across the country. This comparison can provide valuable insights for those considering relocation, businesses looking to expand, researchers studying regional differences, and policymakers addressing urban and regional challenges.
+
+### Real data we choose:
+NYC crime data from NYC Open Data:
+
+[NYC crime data](https://data.cityofnewyork.us/api/views/5jvd-shfj/rows.csv?accessType=DOWNLOAD)
+
+Seattle crime data from Seattle Police Department:
+
+[Seattle crime data](https://data.seattle.gov/Public-Safety/SPD-Crime-Data-2008-Present/tazs-3rd5/about_data)
+
+### Basic architecture
+Technology stack used: JavaScript, HTML, CSS, MySql, Flask.
+![Basic Architecture of our Project](./resource/BasicArchitecture.png)
+Basic Architecture of our Project
+
+Our application is structured on a robust and scalable architecture that integrates both client-side and server-side components hosted on Amazon Web Services (AWS).
+
+**Frontend:**
+User Interface (UI): The UI is developed using HTML, CSS, and JavaScript, ensuring a responsive and interactive experience for users. It is designed to facilitate user queries and display data in an accessible format.
+
+Interaction: Users interact with the frontend through queries, which are then processed by our backend.
+
+**Backend:**
+Flask Application: Serving as the backbone of our backend, the Flask framework handles HTTP requests and performs the necessary logic to retrieve or manipulate data in the database.
+
+Database (MySQL): Our choice of database is MySQL, which stores all application data. Flask serves as an intermediary, allowing for communication between the frontend and the database.
+
+**Infrastructure:**
+AWS EC2 Instances: Both the frontend and backend are deployed on AWS EC2 instances. This infrastructure provides reliable computing resources and allows our system to scale as needed based on user demand.
+
+This architecture provides a clear separation of concerns, with the frontend dedicated to user interactions and the backend focused on data management and business logic. The use of AWS as our cloud provider offers a dependable and secure environment for our full-stack application.
+
+
 
 ### System Features:
 **Feature 1**: Show which types of locations are most likely for a crime to happen in Seattle and New York City.
@@ -148,4 +197,31 @@ Crime_ID in Crime: Every crime should have a unique identifier.
 
 **Default Values:** For certain fields, you might want to set default values. For example, the Details attribute in the Crime table could have a default value of "Not provided" if no specific details about the crime are given.
 
+### Technical challenges
+In the course of our project, we navigated various technical challenges, leading to critical decision-making in two main areas:
+
+
+**Adoption of Amazon Web Services (AWS) EC2 (Elastic Compute Cloud):**
+
+Positive Aspects:
+
+
+Scalability: EC2's scalability was pivotal in managing the fluctuating traffic demands of our full-stack application. Its ability to dynamically adjust computing resources ensured operational efficiency during varying load conditions.
+
+Developmental Versatility: EC2's compatibility with diverse development frameworks and programming languages enhanced our ability to build and deploy a range of full-stack application features.
+
+Enhanced Security: Implementing AWS's comprehensive security measures, including network firewalls and data encryption, significantly bolstered our application's defense against unauthorized access and potential data breaches.
+
+**Utilization of Flask for Database Interaction:**
+
+Negative Aspects:
+
+
+Runtime Dependency: Our reliance on Flask for database interaction introduced a constant runtime requirement. This dependency limited our flexibility in database operations, particularly when these needed to be executed independently of the Flask application or outside web requests.
+
+Performance Constraints: Utilizing Flask solely for database interactions led to unnecessary performance bottlenecks. Exploring more direct or streamlined methods for database connectivity might have offered greater efficiency, especially for straightforward or repetitive database tasks.
+
+Single Point of Failure: Centralizing database operations through the Flask application exposed our system to heightened risk. Any complications within the Flask framework, such as server downtime or bugs, had direct and potentially severe implications on the entirety of our database operations, affecting both the availability and reliability of the application. 
+
+These decisions, both positive and negative, have been instrumental in shaping our understanding of effective and efficient application development, providing valuable lessons for future projects.
 
